@@ -28,7 +28,7 @@ export async function deployPolar(): Promise<void> {
   const polarFilesNoSymlinks: string[] = polarFiles.filter(
     file => !fs.lstatSync(file).isSymbolicLink()
   )
-  await exec.exec('oso-cloud', ['deploy'].concat(polarFilesNoSymlinks), options)
+  await exec.exec('oso-cloud', ['policy'].concat(polarFilesNoSymlinks), options)
 
   core.debug(`stdout from polar tests: \n${output}`)
   core.debug(`stderr from polar tests: \n${error}`)
