@@ -4286,7 +4286,7 @@ async function deployPolar() {
         ignore: 'node_modules/**'
     });
     const polarFilesNoSymlinks = polarFiles.filter(file => !fs.lstatSync(file).isSymbolicLink());
-    await exec.exec('oso-cloud', ['deploy'].concat(polarFilesNoSymlinks), options);
+    await exec.exec('oso-cloud', ['policy'].concat(polarFilesNoSymlinks), options);
     core.debug(`stdout from polar tests: \n${output}`);
     core.debug(`stderr from polar tests: \n${error}`);
 }
